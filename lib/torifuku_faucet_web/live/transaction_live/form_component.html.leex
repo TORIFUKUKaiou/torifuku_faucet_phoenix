@@ -1,0 +1,18 @@
+<h2><%= @title %></h2>
+
+<p>Once a day.</p>
+
+<%= f = form_for @changeset, "#",
+  id: "transaction-form",
+  phx_target: @myself,
+  phx_change: "validate",
+  phx_submit: "save" %>
+
+  <%= hidden_input f, :recaptcha_token, value: @recaptcha_token %>
+
+  <%= label f, :address %>
+  <%= text_input f, :address %>
+  <%= error_tag f, :address %>
+
+  <%= submit "Save", id: "submit-button", phx_disable_with: "Saving..." %>
+</form>

@@ -1,0 +1,39 @@
+.btn-indigo {
+  @apply bg-indigo-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-green {
+  @apply bg-green-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.top-link {
+  @apply font-bold text-6xl mb-2 text-indigo-700;
+}
+
+.page-title {
+  @apply text-orange-500 text-5xl font-bold text-center;
+}
+
+.balance {
+  @apply font-bold text-4xl mb-2;
+}
+
+.my-address {
+  @apply mb-2 inline-block bg-yellow-200 rounded-full px-3 py-1 text-3xl font-semibold text-gray-700 mr-2;
+}
+
+.card {
+  @apply rounded overflow-hidden shadow-lg;
+}
+
+.transaction-address {
+  @apply font-bold text-5xl mb-2;
+}
+
+.transaction-txid {
+  @apply text-gray-700 text-4xl;
+}
+
+.transaction-info {
+  @apply inline-block bg-gray-200 rounded-full px-3 py-1 text-xl font-semibold text-gray-700 mr-2;
+}

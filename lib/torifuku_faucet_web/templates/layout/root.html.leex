@@ -14,17 +14,18 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
+            <li><a href="https://hexdocs.pm/phoenix/overview.html" class="text-indigo-700 text-3xl">Get Started</a></li>
+            <li><a href="https://www.torifuku-kaiou.tokyo/" class="text-green-900 text-3xl">TORIFUKU Kaiou</a></li>
           </ul>
         </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
+        <a href="/" class="phx-logo">
           <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
         </a>
       </section>
     </header>
     <%= @inner_content %>
+    <main role="main" class="container">
+      <a href="https://www.time4vps.com/?affid=3919"><img src="https://www.time4vps.com/banners/affiliate/Time4VPS_468_60.png" width="468" height="60" border="0" title="Time4VPS" alt="Time4VPS - VPS hosting in Europe" /></a>
+    </main>
   </body>
 </html>

@@ -34,3 +34,4 @@ npm-debug.log
 /priv/static/
 
 .tool-versions
+/.elixir_ls/

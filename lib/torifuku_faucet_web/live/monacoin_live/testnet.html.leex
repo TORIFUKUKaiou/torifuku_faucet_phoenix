@@ -1,0 +1,68 @@
+<h1 class="page-title">Monacoin testnet4 Faucet</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <%= live_modal @socket, TorifukuFaucetWeb.TransactionLive.FormComponent,
+    id: @transaction.id || :new,
+    title: @page_title,
+    action: @live_action,
+    transaction: @transaction,
+    recaptcha_token: @recaptcha_token,
+    type: "MonacoinTestnet",
+    ip: @ip,
+    return_to: Routes.monacoin_testnet_path(@socket, :index, recaptcha_token: @recaptcha_token) %>
+<% end %>
+
+<section class="row">
+  <article class="column">
+    <p class="balance"><%= @balance %></p>
+  </article>
+</section>
+
+<section class="row">
+  <article class="column">
+    <span><%= live_patch to: Routes.monacoin_testnet_path(@socket, :new), id: "get-link" do %>
+      <button class="btn-indigo" type="button" phx-Hook="GetRecaptchaToken" <%= if @recaptcha_token == nil, do: "disabled" %>>Get</button>
+    <% end %></span>
+  </article>
+  <article class="column">
+    <span><a href="https://www.torifuku-kaiou.tokyo/#donate">
+      <button class="btn-green" type="button">Donate</button>
+    </a></span>
+  </article>
+  <article class="column">
+    <p class="my-address"><%= @wallet_address %></p>
+  </article>
+</section>
+
+<table>
+  <tbody id="transactions" phx-update="append" phx-hook="InfiniteScroll" data-page="<%= @page %>">
+    <%= for transaction <- @transactions do %>
+      <tr id="transaction-<%= transaction.id %>">
+        <td>
+          <div class="card">
+            <div class="px-6 py-4">
+              <div class="transaction-address"><%= transaction.address %></div>
+                <p class="transaction-txid">
+                  <%= transaction.txid %>
+                </p>
+            </div>
+            <div class="px-6 py-4">
+              <span class="transaction-info"><%= transaction.value %></span>
+              <span class="transaction-info"><%= transaction.inserted_at |> NaiveDateTime.to_string %></span>
+            </div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+var onloadCallback = function() {
+  grecaptcha.execute('<%= @re_captcha_site_key %>', {action: 'social'}).then(function(token) {
+    pushRecaptchaToken(token);
+  });
+};
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=<%= @re_captcha_site_key %>&onload=onloadCallback&render=explicit"></script>

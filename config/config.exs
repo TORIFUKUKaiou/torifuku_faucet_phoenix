@@ -8,7 +8,20 @@
 use Mix.Config
 
 config :torifuku_faucet,
-  ecto_repos: [TorifukuFaucet.Repo]
+  ecto_repos: [TorifukuFaucet.Repo],
+  dashboard_username: System.get_env("FAUCET_DASHBOARD_USERNAME"),
+  dashboard_password: System.get_env("FAUCET_DASHBOARD_PASSWORD"),
+  monacoin_testnet_faucet_rpc_host: System.get_env("MONACOIN_TESTNET_FAUCET_RPC_HOST"),
+  monacoin_testnet_faucet_rpc_user: System.get_env("MONACOIN_TESTNET_FAUCET_RPC_USER"),
+  monacoin_testnet_faucet_rpc_password: System.get_env("MONACOIN_TESTNET_FAUCET_RPC_PASSWORD"),
+  monacoin_mainnet_faucet_rpc_host: System.get_env("MONACOIN_MAINNET_FAUCET_RPC_HOST"),
+  monacoin_mainnet_faucet_rpc_user: System.get_env("MONACOIN_MAINNET_FAUCET_RPC_USER"),
+  monacoin_mainnet_faucet_rpc_password: System.get_env("MONACOIN_MAINNET_FAUCET_RPC_PASSWORD"),
+  koto_mainnet_faucet_rpc_host: System.get_env("KOTO_MAINNET_FAUCET_RPC_HOST"),
+  koto_mainnet_faucet_rpc_user: System.get_env("KOTO_MAINNET_FAUCET_RPC_USER"),
+  koto_mainnet_faucet_rpc_password: System.get_env("KOTO_MAINNET_FAUCET_RPC_PASSWORD"),
+  re_captcha_site_key: System.get_env("FAUCET_RECAPTCHA_SITE_KEY"),
+  re_captcha_secret_key: System.get_env("FAUCET_RECAPTCHA_SECRET_KEY")
 
 # Configures the endpoint
 config :torifuku_faucet, TorifukuFaucetWeb.Endpoint,

@@ -14,9 +14,10 @@ defmodule TorifukuFaucet.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: TorifukuFaucet.PubSub},
       # Start the Endpoint (http/https)
-      TorifukuFaucetWeb.Endpoint
+      TorifukuFaucetWeb.Endpoint,
       # Start a worker by calling: TorifukuFaucet.Worker.start_link(arg)
       # {TorifukuFaucet.Worker, arg}
+      TorifukuFaucet.Address.Cache
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
