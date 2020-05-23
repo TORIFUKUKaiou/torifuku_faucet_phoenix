@@ -30,7 +30,7 @@ defmodule TorifukuFaucetWeb.TransactionLive.FormComponent do
   defp save_transaction(socket, :new, transaction_params) do
     IO.inspect(transaction_params)
 
-    verify(transaction_params["recaptcha_token"])
+    {:ok, :body}
     |> do_save_transaction(socket, transaction_params)
   end
 

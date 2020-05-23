@@ -21,7 +21,7 @@
 <section class="row">
   <article class="column">
     <span><%= live_patch to: Routes.monacoin_testnet_path(@socket, :new), id: "get-link" do %>
-      <button class="btn-indigo" type="button" phx-Hook="GetRecaptchaToken" <%= if @recaptcha_token == nil, do: "disabled" %>>Get</button>
+      <button class="btn-indigo" type="button" phx-Hook="GetRecaptchaToken">Get</button>
     <% end %></span>
   </article>
   <article class="column">
